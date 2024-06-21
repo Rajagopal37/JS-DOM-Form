@@ -3,134 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOOD FORM</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>   
+    <title>JASzha Restaurant Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <div class="container">
-        <div class="form-title">
-            <h1 id="title">JASzha Restaurant</h1>
-            
-            <p id="description">
-                Kindly fill the form.
-            </p>
-        </div>
+    <script>
+        let container = document.createElement("div");
+        container.setAttribute("class", "container");
+        document.body.append(container);
 
-        <table class="table">
-            <tr>
-                <td>
-                    <form autocomplete="off" onsubmit="onSubmit(event)" id="form">
-                        <div class="main-user-info">
+        let formTitle = document.createElement("div");
+        formTitle.setAttribute("class", "form-title");
+        container.append(formTitle);
 
-                            <!-- firstName -->
-                            <div class="user-input-box">                    
-                                <label for="firstName">First Name</label><br>
-                                <input type="text" placeholder="Enter First Name" name="firstName" id="first-name" required>
-                            </div>
+        let title = document.createElement("h1");
+        title.setAttribute("id", "title");
+        title.innerHTML = "JASzha Restaurant";
+        formTitle.append(title);
 
-                            <!-- lastName -->
-                            <div class="user-input-box">
-                                <label for="lastName">Last Name</label><br>
-                                <input type="text" placeholder="Enter Last Name" name="lastName" id="last-name" required>
-                            </div>
+        let description = document.createElement("p");
+        description.setAttribute("id", "description");
+        description.textContent = "Kindly fill the form.";
+        formTitle.append(description);
 
-                            <!--Email-->
-                            <div class="user-input-box">                       
-                                <label for="email">Email</label><br>
-                                <input type="email" placeholder="Ex: abc@zmail.com" name="email" id="email" required>
-                            </div>
-                            
-                            
-                            <!--pincode-->
-                            <div class="user-input-box">                   
-                                <label for="pincode">Pincode</label><br>
-                                <input type="number" name="pincode" id="pincode" required>
-                            </div>
-                            
-                            <!--State-->
-                            <div class="user-input-box">                   
-                                <label for="state">State</label><br>
-                                <input type="text" name="state" id="state" required>
-                            </div>
-                            
-                            <!--country-->
-                            <div class="user-input-box">                   
-                                <label for="country">Country</label><br>
-                                <input type="text" name="country" id="country" required>
-                            </div>
-                            
-                            <!--Address-->
-                            <div class="user-input-box">                   
-                                <label for="address">Address</label><br>
-                                <textarea id="address" name="address" rows="3" cols="20" placeholder="Enter Your Address" required></textarea>
-                            </div>
+        let formTable = document.createElement("table");
+        formTable.setAttribute("class", "table");
+        container.append(formTable);
 
-                            <!--gender-->
-                            <div class="user-input-box">                   
-                                <span class="gender-title">Gender </span>
-                                <div class="gender-category">
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <label for="male">Male</label>
-                                    <input type="radio" id="female" name="gender" value="female">
-                                    <label for="female">Female</label>
-                                    <input type="radio" name="gender" id="other" value="other">
-                                    <label for="other">Other</label>
-                                </div>
-                            </div>
+        let tr1 = document.createElement("tr");
+        formTable.append(tr1);
 
-                            <!--food-->
-                            <div class="user-input-box">                   
-                                <label for="food"> Food Verity</label><br>
-                                &nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="option1" name="food" value="Indian">
-                                <label for="option1">Indian</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="option2" name="food" value="Western">
-                                <label for="option2">Western</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="option3" name="food" value="Oriental">
-                                <label for="option3">Oriental</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="option4" name="food" value="Mexican">
-                                <label for="option4">Mexican</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="option5" name="food" value="African">
-                                <label for="option5">African</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
+        let td1 = document.createElement("td");
+        tr1.append(td1);
 
-                            <!--submit-->
-                            <div class="form-submit-btn">                   
-                                <input type="submit" id="submit"> </input>
-                            </div> 
-    
-                        </div>
-                    </form>
-                </td>
-            </tr>
-        </table>
-        <table class="form-data" id="storelist">
-            <thead>
-                <tr >
-                    <div class="form-data">
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Gender</th>
-                        <th>Address</th>
-                        <th>Pincode</th>
-                        <th>State</th>
-                        <th>Country</th>
-                        <th>Food</th>
-                    </div>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
+        let form = document.createElement("form");
+        form.setAttribute("autocomplete", "off");
+        form.setAttribute("onsubmit", "onSubmit(event)");
+        form.setAttribute("id", "form");
+        td1.append(form);
 
+        let mainUserInfo = document.createElement("div");
+        mainUserInfo.setAttribute("class", "main-user-info");
+        form.append(mainUserInfo);
 
+        function createUserInputBox(labelText, inputType, inputName, inputId, placeholder) {
+            let userInputBox = document.createElement("div");
+            userInputBox.setAttribute("class", "user-input-box");
 
-    
+            let label = document.createElement("label");
+            label.setAttribute("for", inputName);
+            label.innerHTML = labelText;
+            userInputBox.append(label);
+
+            let input = document.createElement("input");
+            input.setAttribute("type", inputType);
+            input.setAttribute("name", inputName);
+            input.setAttribute("id", inputId);
+            input.setAttribute("placeholder", placeholder);
+            input.setAttribute("required", "");
+            userInputBox.append(input);
+
+            mainUserInfo.append(userInputBox);
+        }
+
+        createUserInputBox("First Name", "text", "firstName", "first-name", "Enter First Name");
+        createUserInputBox("Last Name", "text", "lastName", "last-name", "Enter Last Name");
+        createUserInputBox("Email", "email", "email", "email", "Ex: abc@zmail.com");
+        createUserInputBox("Pincode", "number", "pincode", "pincode", "Enter Pincode");
+        createUserInputBox("State", "text", "state", "state", "Enter Your State");
+        createUserInputBox("Country", "text", "country", "country", "Enter Your Country");
+
+        let userInputBoxAddress = document.createElement("div");
+        userInputBoxAddress.setAttribute("class", "user-input-box");
+        mainUserInfo.append(userInputBoxAddress);
+
+        let addressLabel = document.createElement("label");
+        addressLabel.setAttribute("for", "address");
+        addressLabel.setAttribute("id", "address");
+        addressLabel.innerHTML = "Address";
+        userInputBoxAddress.append(addressLabel);
+
+        let addressInput = document.createElement("textarea");
+        addressInput.setAttribute("id", "address");
+        addressInput.setAttribute("name", "address");
+        addressInput.setAttribute("rows", "3");
+        addressInput.setAttribute("cols", "20");
+        addressInput.setAttribute("placeholder", "Enter Your Address");
+        addressInput.setAttribute("required", "");
+        userInputBoxAddress.append(addressInput);
+
+        let userInputBoxGender = document.createElement("div");
+        userInputBoxGender.setAttribute("class", "user-input-box");
+        mainUserInfo.append(userInputBoxGender);
+
+        let genderTitle = document.createElement("span");
+        genderTitle.setAttribute("class", "gender-title");
+        genderTitle.innerHTML = "Gender";
+        userInputBoxGender.append(genderTitle);
+
+        let genderCategory = document.createElement("div");
+        genderCategory.setAttribute("class", "gender-category");
+        userInputBoxGender.append(genderCategory);
+
+        function createRadioInput(name, value, labelText) {
+            let input = document.createElement("input");
+            input.setAttribute("type", "radio");
+            input.setAttribute("id", value);
+            input.setAttribute("name", name);
+            input.setAttribute("value", value);
+            genderCategory.append(input);
+
+            let label = document.createElement("label");
+            label.setAttribute("for", value);
+            label.innerHTML = labelText;
+            genderCategory.append(label);
+        }
+
+        createRadioInput("gender", "male", "Male");
+        createRadioInput("gender", "female", "Female");
+        createRadioInput("gender", "other", "Other");
+
+        let userInputBoxFood = document.createElement("div");
+        userInputBoxFood.setAttribute("class", "user-input-box");
+        mainUserInfo.append(userInputBoxFood);
+
+        let foodTitle = document.createElement("span");
+        foodTitle.setAttribute("class", "gender-title");
+        foodTitle.innerHTML = "Food Variety";
+        userInputBoxFood.append(foodTitle);
+
+        let foodCategory = document.createElement("div");
+        foodCategory.setAttribute("class", "gender-category");
+        userInputBoxFood.append(foodCategory);
+
+        function createCheckboxInput(name, value, labelText) {
+            let input = document.createElement("input");
+            input.setAttribute("type", "checkbox");
+            input.setAttribute("id", value);
+            input.setAttribute("name", name);
+            input.setAttribute("value", value);
+            foodCategory.append(input);
+
+            let label = document.createElement("label");
+            label.setAttribute("for", value);
+            label.innerHTML = labelText;
+            foodCategory.append(label);
+        }
+
+        createCheckboxInput("food", "Indian", "Indian");
+        createCheckboxInput("food", "Western", "Western");
+        createCheckboxInput("food", "Oriental", "Oriental");
+        createCheckboxInput("food", "Mexican", "Mexican");
+        createCheckboxInput("food", "African", "African");
+
+        let formSubmitBtn = document.createElement("div");
+        formSubmitBtn.setAttribute("class", "form-submit-btn");
+        mainUserInfo.append(formSubmitBtn);
+
+        let submitInput = document.createElement("input");
+        submitInput.setAttribute("type", "submit");
+        submitInput.setAttribute("id", "submit");
+        formSubmitBtn.append(submitInput);
+
+        let formData = document.createElement("table");
+        formData.setAttribute("class", "form-data");
+        formData.setAttribute("id", "storelist");
+        container.append(formData);
+
+        let thead = document.createElement("thead");
+        formData.append(thead);
+
+        let tr2 = document.createElement("tr");
+        thead.append(tr2);
+
+        function createTableHeaderCell(text) {
+            let th = document.createElement("th");
+            th.innerHTML = text;
+            tr2.append(th);
+        }
+
+        createTableHeaderCell("First Name");
+        createTableHeaderCell("Last Name");
+        createTableHeaderCell("Email");
+        createTableHeaderCell("Gender");
+        createTableHeaderCell("Address");
+        createTableHeaderCell("Pincode");
+        createTableHeaderCell("State");
+        createTableHeaderCell("Country");
+        createTableHeaderCell("Food");
+
+        let tbody = document.createElement("tbody");
+        formData.append(tbody);
+    </script>
+
+    <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
