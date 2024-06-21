@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD FORM</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>   
+<body>
+    <div class="container">
+        <div class="form-title">
+            <h1 id="title">JASzha Restaurant</h1>
+            
+            <p id="description">
+                Kindly fill the form.
+            </p>
+        </div>
+
+        <table class="table">
+            <tr>
+                <td>
+                    <form autocomplete="off" onsubmit="onSubmit(event)" id="form">
+                        <div class="main-user-info">
+
+                            <!-- firstName -->
+                            <div class="user-input-box">                    
+                                <label for="firstName">First Name</label><br>
+                                <input type="text" placeholder="Enter First Name" name="firstName" id="first-name" required>
+                            </div>
+
+                            <!-- lastName -->
+                            <div class="user-input-box">
+                                <label for="lastName">Last Name</label><br>
+                                <input type="text" placeholder="Enter Last Name" name="lastName" id="last-name" required>
+                            </div>
+
+                            <!--Email-->
+                            <div class="user-input-box">                       
+                                <label for="email">Email</label><br>
+                                <input type="email" placeholder="Ex: abc@zmail.com" name="email" id="email" required>
+                            </div>
+                            
+                            
+                            <!--pincode-->
+                            <div class="user-input-box">                   
+                                <label for="pincode">Pincode</label><br>
+                                <input type="number" name="pincode" id="pincode" required>
+                            </div>
+                            
+                            <!--State-->
+                            <div class="user-input-box">                   
+                                <label for="state">State</label><br>
+                                <input type="text" name="state" id="state" required>
+                            </div>
+                            
+                            <!--country-->
+                            <div class="user-input-box">                   
+                                <label for="country">Country</label><br>
+                                <input type="text" name="country" id="country" required>
+                            </div>
+                            
+                            <!--Address-->
+                            <div class="user-input-box">                   
+                                <label for="address">Address</label><br>
+                                <textarea id="address" name="address" rows="3" cols="20" placeholder="Enter Your Address" required></textarea>
+                            </div>
+
+                            <!--gender-->
+                            <div class="user-input-box">                   
+                                <span class="gender-title">Gender </span>
+                                <div class="gender-category">
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label>
+                                    <input type="radio" name="gender" id="other" value="other">
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+
+                            <!--food-->
+                            <div class="user-input-box">                   
+                                <label for="food"> Food Verity</label><br>
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="option1" name="food" value="Indian">
+                                <label for="option1">Indian</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="option2" name="food" value="Western">
+                                <label for="option2">Western</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="option3" name="food" value="Oriental">
+                                <label for="option3">Oriental</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="option4" name="food" value="Mexican">
+                                <label for="option4">Mexican</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="option5" name="food" value="African">
+                                <label for="option5">African</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+
+                            <!--submit-->
+                            <div class="form-submit-btn">                   
+                                <input type="submit" id="submit"> </input>
+                            </div> 
+    
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <table class="form-data" id="storelist">
+            <thead>
+                <tr >
+                    <div class="form-data">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>Pincode</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Food</th>
+                    </div>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
